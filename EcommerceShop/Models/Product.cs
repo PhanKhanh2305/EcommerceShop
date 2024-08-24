@@ -22,7 +22,7 @@ namespace EcommerceShop.Models
 		[ForeignKey("Category")]
 		public int CategoryId { get; set; }
 		[ForeignKey("Color")]
-		public int StyleId { get; set; }
+		public int ColorId { get; set; }
 		public Category? Category { get; set; }
 		public Color? Color { get; set; }
 	}

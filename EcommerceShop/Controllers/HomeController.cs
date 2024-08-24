@@ -1,4 +1,5 @@
 using EcommerceShop.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,6 +9,7 @@ namespace EcommerceShop.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 
+		
 		public HomeController(ILogger<HomeController> logger)
 		{
 			_logger = logger;
@@ -17,7 +19,7 @@ namespace EcommerceShop.Controllers
 		{
 			return View();
 		}
-
+		
 		public IActionResult Privacy()
 		{
 			return View();

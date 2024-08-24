@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-
+@using EcommerceShop.Areas.Identity.Data
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
@@ -25,3 +25,8 @@ else
     </li>
 }
 </ul>
+
+@* @if(User.IsInRole("Admin"))
+{
+    
+} *@

@@ -6,7 +6,7 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
 	.AddRoles<IdentityRole>()
 	.AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -23,6 +23,7 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
+app.MapRazorPages();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -44,6 +45,22 @@ using (var scope = app.Services.CreateScope())
 		if (!await roleManager.RoleExistsAsync(role))
 			await roleManager.CreateAsync(new IdentityRole(role));
 	}
+}
+using (var scope = app.Services.CreateScope())
+{
+	var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+	string email = "duykhanh@khanh.com";
+	string password = "Test123@";
+	if (await userManager.FindByEmailAsync(email) == null)
+	{
+		var user = new IdentityUser();
+		user.UserName = email;
+		user.Email = email;
+		await userManager.CreateAsync(user, password);
+		await userManager.AddToRoleAsync(user, "Customer");
+	}
+
+
 }
 
 app.Run();
