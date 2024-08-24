@@ -118,24 +118,7 @@
     </header>
     <!-- Header part end-->
 
-    <!-- banner part start-->
-    @await Component.InvokeAsync("BannerPart")
-    <!-- banner part end-->
-
-    <!-- feature_part start-->
-    @await Component.InvokeAsync("FeatureCategory")
-    <!-- feature_part end-->
     @RenderBody()
-    <!-- Our Product start-->
-    @await Component.InvokeAsync("OurProduct")
-    <!-- Our Product end-->
-    <!-- Special Offers start-->
-    @await Component.InvokeAsync("SpecialOffers")
-    <!-- Special Offers end-->
-
-    <!--Best Seller start-->
-    @await Component.InvokeAsync("BestSeller")
-    <!--Best Seller end-->
 
     <!--::footer_part start::-->
     <footer class="footer_part">

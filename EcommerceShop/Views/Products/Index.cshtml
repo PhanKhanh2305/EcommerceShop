@@ -1,72 +1,222 @@
-﻿@model IEnumerable<EcommerceShop.Models.Product>
+﻿@using EcommerceShop.Models.ViewModels
+@model ProductListViewModel
 
 @{
     ViewData["Title"] = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<!--================Home Banner Area =================-->
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Shop</h2>
+                        <p>Home <span>-</span> Shop Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb start-->
+<!--================Category Product Area =================-->
+<section class="cat_product_area section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="left_sidebar_area">
+                    <aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Browse Categories</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Frozen Fish</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Dried Fish</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Fresh Fish</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Meat Alternatives</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Fresh Fish</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Meat Alternatives</a>
+                                    <span>(250)</span>
+                                </li>
+                                <li>
+                                    <a href="#">Meat</a>
+                                    <span>(250)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductPhoto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BestSeller)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductPhoto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BestSeller)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color.ColorName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Product filters</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Apple</a>
+                                </li>
+                                <li>
+                                    <a href="#">Asus</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Gionee</a>
+                                </li>
+                                <li>
+                                    <a href="#">Micromax</a>
+                                </li>
+                                <li>
+                                    <a href="#">Samsung</a>
+                                </li>
+                            </ul>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Apple</a>
+                                </li>
+                                <li>
+                                    <a href="#">Asus</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Gionee</a>
+                                </li>
+                                <li>
+                                    <a href="#">Micromax</a>
+                                </li>
+                                <li>
+                                    <a href="#">Samsung</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Color Filter</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Black</a>
+                                </li>
+                                <li>
+                                    <a href="#">Black Leather</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Black with red</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gold</a>
+                                </li>
+                                <li>
+                                    <a href="#">Spacegrey</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                    
+
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product_top_bar d-flex justify-content-between align-items-center">
+                            <div class="single_product_menu">
+                                <p><span>@Model.Products.Count()</span> Product Found In Page</p>
+                            </div>
+
+                            <div class="single_product_menu d-flex">
+                                <form asp-action="Search" asp-controller="Products">
+                                    <div class="input-group">
+                                        <input type="text" name="keywords" class="form-control" placeholder="Search"
+                                               aria-describedby="inputGroupPrepend">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">
+                                                <button type="submit" class="ti-search"></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center latest_product_inner">
+                    @foreach (var item in Model.Products)
+                    {
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="/Template/@item.ProductPhoto" alt="">
+                                <div class="single_product_text">
+                                    <h4>@item.ProductName</h4>
+                                    <h3>$@item.ProductPrice</h3>
+                                    <a href="/Cart/AddToCart/?ProductId=@item.ProductId" class="add_cart">+ add to cart@* <i class="ti-heart"></i> *@</a>
+                                    <a href="/Products/Details/@item.ProductId">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-lg-12">
+                        <div class="pageination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <i class="ti-angle-double-left"></i>
+                                        </a>
+                                    </li>
+
+                                    @for (int i = 1; i <= Model.PagingInfo.TotalPage; i++)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/Products/?productpage=@i">@i</a></li>
+                                    }
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <i class="ti-angle-double-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("btnFilter").addEventListener("click", function () {
+        alert("You click Me!");
+    })
+    function getSelectedCheckboxes(formId) {
+        var checkboxes = $('#' + formId + 'input[type="radio"]:checked');
+        var values = []
+        checkboxes.each(function () {
+            values.push($(this).attr('val')
+            })
+
+    }
+</script>
