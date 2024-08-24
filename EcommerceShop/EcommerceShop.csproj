@@ -17,4 +17,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Template\img\.DS_Store" />
+    <None Include="wwwroot\Template\img\blog\.DS_Store" />
+    <None Include="wwwroot\Template\img\product\.DS_Store" />
+    <None Include="wwwroot\Template\img\product\blog\.DS_Store" />
+    <None Include="wwwroot\Template\img\product\product\.DS_Store" />
+  </ItemGroup>
+
 </Project>
