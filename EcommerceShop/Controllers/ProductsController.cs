@@ -74,7 +74,7 @@ namespace EcommerceShop.Controllers
             });
         }
         [HttpGet]
-        public async Task<IActionResult> ProductsByStyle(int colorId, int productpage = 1)
+        public async Task<IActionResult> ProductsByColor(int colorId, int productpage = 1)
         {
             return View("Index", new ProductListViewModel
             {

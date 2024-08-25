@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EcommerceShop.Areas.Identity.Data;
 using EcommerceShop.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EcommerceShop.Controllers
 {
+    
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;

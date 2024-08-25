@@ -1,0 +1,13 @@
+﻿@model IEnumerable<EcommerceShop.Models.Category>
+@using EcommerceShop.Models.ViewModels
+<div class="widgets_inner">
+    <ul class="list">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/Products/ProductsByCat/?categoryId=@item.CategoryId">@item.CategoryName</a>
+                <span>Number: @item.CategoryOrder</span>
+            </li>
+        }
+    </ul>
+</div>

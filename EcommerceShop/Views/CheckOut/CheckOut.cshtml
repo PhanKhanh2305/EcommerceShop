@@ -1,0 +1,73 @@
+﻿@model Cart
+@using Microsoft.AspNetCore.Identity
+@using EcommerceShop.Areas.Identity.Data
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<section class="checkout_area padding_top">
+    <div class="container">
+                <div class="col-lg-4">
+                    @if(SignInManager.IsSignedIn(User))
+                    {
+                        @foreach (var line in Model.Lines)
+                        {
+                            <div class="order_box">
+                                <h2>@UserManager.GetUserName(User)</h2>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">
+                                             @line.Product.ProductName
+                                            <span class="middle">@line.Quantity</span>
+                                            <span class="last">$@(line.Product.ProductPrice * line.Quantity)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="payment_item">
+                                    <div class="radion_btn">
+                                        <input type="radio" id="f-option5" name="selector" />
+                                        <label for="f-option5">Check payments</label>
+                                        <div class="check"></div>
+                                    </div>
+                                    <p>
+                                        Please send a check to Store Name, Store Street, Store Town,
+                                        Store State / County, Store Postcode.
+                                    </p>
+                                </div>
+                                <div class="payment_item active">
+                                    <div class="radion_btn">
+                                        <input type="radio" id="f-option6" name="selector" />
+                                        <label for="f-option6">Paypal </label>
+                                        <img src="img/product/single-product/card.jpg" alt="" />
+                                        <div class="check"></div>
+                                    </div>
+                                    <p>
+                                        Please send a check to Store Name, Store Street, Store Town,
+                                        Store State / County, Store Postcode.
+                                    </p>
+                                </div>
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option4" name="selector" />
+                                    <label for="f-option4">I’ve read and accept the </label>
+                                    <a href="#">terms & conditions*</a>
+                                </div>
+                                <a class="btn_3" href="#">Proceed to Paypal</a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                <div class="returning_customer">
+                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="btn_3">
+                                <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">You need login</a>
+                            </button>
+                            <a class="lost_pass" href="#">Lost your password?</a>
+                        </div>
+                    </form>
+                </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -49,21 +49,21 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="~/Home/Index">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">
-                                        Shop
+                                    <a class="nav-link" href="~/Categories/Index">
+                                        Category
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">
-                                        pages
+                                    <a class="nav-link" href="~/Products/Index">
+                                        Product
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">
-                                        blog
+                                    <a class="nav-link" href="#">
+                                        About Us
                                     </a>
                                 </li>
 
@@ -73,35 +73,24 @@
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
-                            <ul class="navbar-nav">
-                                @if (SignInManager.IsSignedIn(User))
-                                {
-                                    <li class="nav-item">
-                                        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
-                                        </form>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                                    </li>
-                                }
-                            </ul>
-                            
+                            <partial name="_LoginPartial" />
                         </div>
-                        <div class="dropdown cart mt-500">
-                            <a class="dropdown-toggle mt-500" href="/Cart" id="navbarDropdown3">
-                                <i class="fas fa-cart-plus mt-100"></i>
-                            </a>
-                        </div>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <div class="dropdown cart mt-500">
+                                <a class="dropdown-toggle mt-500" href="/Cart" id="navbarDropdown3">
+                                    <i class="fas fa-cart-plus mt-100"></i>
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="dropdown cart mt-500">
+                                <a class="dropdown-toggle mt-500" href="#" id="navbarDropdown3">
+                                    <i class="fas fa-cart-plus mt-100"></i>
+                                </a>
+                            </div>
+                        }
                     </nav>
                 </div>
             </div>

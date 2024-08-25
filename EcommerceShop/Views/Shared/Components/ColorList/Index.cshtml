@@ -1,0 +1,12 @@
+﻿@model IEnumerable<EcommerceShop.Models.Color>
+<div class="widgets_inner">
+    <ul class="list">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/Products/ProductsByColor/?colorId=@item.ColorId">@item.ColorName</a>
+                <span></span>
+            </li>
+        }
+    </ul>
+</div>
